@@ -87,31 +87,24 @@ const pluginScreenshots: Record<string, PluginScreenshot[]> = {
   'tnt-tag': [
     {
       id: 'tnttag-1',
-      title: 'Game Mechanics Documentation',
-      description: 'Complete documentation of TNTTag game mechanics, including TNT passing system, round management, arena management, and GUI system.',
-      imageUrl: '/public/images/aaaaa.png',
-      features: ['TNT Passing System', 'Round Management', 'Arena System', 'GUI Controls']
+      title: 'TNTtag Game',
+      description: 'Multi-round game system, last one alive wins.',
+      imageUrl: '/public/images/tnttag-game.png',
+      features: ['Countdown Timer', 'Game', 'Scoreboard Live']
     },
     {
       id: 'tnttag-2',
-      title: 'Game Management System',
-      description: 'Complete game management system with countdown, team management, spectator mode and real-time scoreboard.',
-      imageUrl: '/api/placeholder/800/500',
-      features: ['Countdown Timer', 'Team Management', 'Scoreboard Live']
+      title: 'TNTtag GUI',
+      description: 'Very simple Gui to allow all users to manage the plugin smoothly.',
+      imageUrl: '/public/images/tnttag-gui.png',
+      features: ['GUI', 'Management', 'Game Rules']
     },
     {
       id: 'tnttag-3',
-      title: 'WorldGuard Integration',
-      description: 'Advanced integration with WorldGuard for automatic arena protection, region configuration and permission management.',
-      imageUrl: '/api/placeholder/800/500',
-      features: ['PvP Protection', 'Block Protection', 'Game Rules', 'Region Flags']
-    },
-    {
-      id: 'tnttag-4',
       title: 'Multi-Arena Support',
       description: 'Support for multiple arenas with individual configuration, custom spawn points and automatic lobby management.',
-      imageUrl: '/api/placeholder/800/500',
-      features: ['Multiple Arenas', 'Custom Spawn', 'Individual Configuration', 'Lobby Management']
+      imageUrl: '/public/images/tnttag-arenas.png',
+      features: ['Multiple Arenas', 'Custom Spawn', 'Individual Configuration']
     }
   ],
   'boss-core': [
@@ -152,7 +145,7 @@ export default function PluginDetail() {
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Plugin non trovato</h1>
           <Link href="/" className="text-blue-400 hover:text-blue-300">
-            Torna alla home
+            Back to home
           </Link>
         </div>
       </div>
@@ -177,7 +170,7 @@ export default function PluginDetail() {
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center text-blue-400 hover:text-blue-300 transition-colors">
               <ArrowLeft size={20} className="mr-2" />
-              Torna al Portfolio
+              Back to Portfolio
             </Link>
             <div className="flex items-center space-x-4">
               <a
@@ -305,7 +298,7 @@ export default function PluginDetail() {
                   
                   <div className="mb-8">
                     <h4 className="text-lg font-semibold text-blue-300 mb-4">
-                      Funzionalità Mostrate:
+                      Features Shown:
                     </h4>
                     <div className="space-y-3">
                       {screenshots[currentScreenshot]?.features.map((feature, index) => (

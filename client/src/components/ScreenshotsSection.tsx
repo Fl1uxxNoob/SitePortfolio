@@ -20,7 +20,7 @@ const screenshots: Screenshot[] = [
     title: 'AFKGuard Verification System',
     description: 'Interactive GUI-based verification system with randomized block selection to prevent AFK players.',
     category: 'plugin',
-    imageUrl: '/api/placeholder/600/400',
+    imageUrl: '/images/afk-guicheck.png',
     projectName: 'AFKGuard',
     features: ['GUI Verification', 'Random Block Selection', 'Auto-Kick System']
   },
@@ -29,25 +29,25 @@ const screenshots: Screenshot[] = [
     title: 'BetterClaim Management GUI',
     description: 'Comprehensive land claiming interface with chunk visualization and permission management.',
     category: 'plugin',
-    imageUrl: '/api/placeholder/600/400',
+    imageUrl: '/images/claim-gui.png',
     projectName: 'BetterClaim',
     features: ['Chunk-based Claims', 'Permission System', 'GUI Management']
   },
   {
     id: 'tnttag-arena',
-    title: 'TNTTag Arena Setup',
-    description: 'Multi-arena configuration with WorldGuard integration and scoreboard display.',
+    title: 'TNTtag Game',
+    description: 'Multi-round game system, last one alive wins.',
     category: 'plugin',
-    imageUrl: '/public/images/aaaaa.png',
+    imageUrl: '/images/tnttag-game.png',
     projectName: 'TNTTag',
-    features: ['Multi-Arena Support', 'WorldGuard Integration', 'Real-time Scoreboard']
+    features: ['Countdown Timer', 'Game', 'Scoreboard Live']
   },
   {
     id: 'bosscore-event',
     title: 'BossCore Event in Action',
     description: 'Live boss event with players competing and real-time hit tracking scoreboard.',
     category: 'plugin',
-    imageUrl: '/api/placeholder/600/400',
+    imageUrl: '/images/bs-start.png',
     projectName: 'BossCore',
     features: ['Interactive Boss Events', 'Hit Tracking', 'Automated Rewards']
   },
@@ -56,18 +56,9 @@ const screenshots: Screenshot[] = [
     title: 'Discord Moderation Commands',
     description: 'Comprehensive moderation interface with slash commands and auto-moderation features.',
     category: 'bot',
-    imageUrl: '/api/placeholder/600/400',
+    imageUrl: '/images/bot-ban.png',
     projectName: 'ModerationBot',
     features: ['Slash Commands', 'Auto-Moderation', 'Logging System']
-  },
-  {
-    id: 'discord-logs',
-    title: 'Advanced Logging System',
-    description: 'Detailed logging interface showing member actions, moderation events, and server statistics.',
-    category: 'bot',
-    imageUrl: '/api/placeholder/600/400',
-    projectName: 'ModerationBot',
-    features: ['Event Logging', 'Statistics', 'Database Integration']
   }
 ];
 

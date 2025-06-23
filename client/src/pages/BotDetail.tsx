@@ -54,7 +54,7 @@ export default function BotDetail() {
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Bot non trovato</h1>
           <Link href="/" className="text-blue-400 hover:text-blue-300">
-            Torna alla home
+            Back to home
           </Link>
         </div>
       </div>
@@ -85,7 +85,7 @@ export default function BotDetail() {
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center text-blue-400 hover:text-blue-300 transition-colors">
               <ArrowLeft size={20} className="mr-2" />
-              Torna al Portfolio
+              Back to Portfolio
             </Link>
             <div className="flex items-center space-x-4">
               <a
@@ -304,12 +304,12 @@ export default function BotDetail() {
             </h3>
             <div className="space-y-4 text-gray-300">
               <div>
-                <span className="text-purple-300 font-medium">Stato: </span>
+                <span className="text-purple-300 font-medium">Status: </span>
                 {bot.status === 'active' ? 'Active and Maintained' :
                  bot.status === 'beta' ? 'In Beta Testing' : 'In Development'}
               </div>
               <div>
-                <span className="text-purple-300 font-medium">Tipo: </span>
+                <span className="text-purple-300 font-medium">Type: </span>
                 Moderation Discord Bot
               </div>
             </div>
