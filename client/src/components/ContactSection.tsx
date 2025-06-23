@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { MapPin, Mail, Code, Github } from "lucide-react";
+import { MapPin, Mail, Code, Github, Send } from "lucide-react";
 import { SiDiscord, SiLinkedin } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,14 +21,48 @@ export default function ContactSection() {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement actual form submission logic
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your message. I'll get back to you soon!",
-    });
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        toast({
+          title: "Messaggio Inviato!",
+          description: "Grazie per il tuo messaggio. Ti risponderò presto!",
+        });
+        
+        // Reset form
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        toast({
+          title: "Errore",
+          description: result.message || "Si è verificato un errore nell'invio del messaggio.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error('Errore nell\'invio del messaggio:', error);
+      toast({
+        title: "Errore di Connessione",
+        description: "Impossibile inviare il messaggio. Riprova più tardi.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -147,6 +181,9 @@ export default function ContactSection() {
                       onChange={handleInputChange}
                       className="bg-[#334155] border-blue-500/30 focus:border-blue-400 text-white placeholder:text-gray-400"
                       required
+                      disabled={isSubmitting}
+                      minLength={2}
+                      maxLength={100}
                     />
                   </div>
                   <div>
@@ -158,6 +195,8 @@ export default function ContactSection() {
                       onChange={handleInputChange}
                       className="bg-[#334155] border-blue-500/30 focus:border-blue-400 text-white placeholder:text-gray-400"
                       required
+                      disabled={isSubmitting}
+                      maxLength={255}
                     />
                   </div>
                   <div>
@@ -169,6 +208,9 @@ export default function ContactSection() {
                       onChange={handleInputChange}
                       className="bg-[#334155] border-blue-500/30 focus:border-blue-400 text-white placeholder:text-gray-400"
                       required
+                      disabled={isSubmitting}
+                      minLength={3}
+                      maxLength={200}
                     />
                   </div>
                   <div>
@@ -180,13 +222,27 @@ export default function ContactSection() {
                       rows={4}
                       className="bg-[#334155] border-blue-500/30 focus:border-blue-400 text-white placeholder:text-gray-400 resize-none"
                       required
+                      disabled={isSubmitting}
+                      minLength={10}
+                      maxLength={1000}
                     />
                   </div>
                   <Button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 py-3 font-semibold transition-all duration-300 transform hover:scale-105"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 py-3 font-semibold transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                   >
-                    Send Message
+                    {isSubmitting ? (
+                      <div className="flex items-center justify-center">
+                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                        Sending...
+                      </div>
+                    ) : (
+                      <div className="flex items-center justify-center">
+                        <Send size={16} className="mr-2" />
+                        Send Message
+                      </div>
+                    )}
                   </Button>
                 </form>
               </motion.div>

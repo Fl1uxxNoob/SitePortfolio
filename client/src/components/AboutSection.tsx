@@ -34,7 +34,7 @@ export default function AboutSection() {
                   Developer from Lombardy, Italy
                 </h3>
                 <p className="text-gray-300 mb-6 leading-relaxed">
-                  I'm a 19-year-old passionate developer specializing in Minecraft server development and Discord bot creation.
+                  I'm Fl1uxx, a 19-year-old passionate developer specializing in Minecraft plugin/server development and Discord bot creation.
                   With expertise in multiple programming languages, I bring creative solutions to life through code.
                 </p>
                 <p className="text-gray-300 mb-8 leading-relaxed">

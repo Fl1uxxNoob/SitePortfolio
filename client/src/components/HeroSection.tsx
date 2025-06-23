@@ -34,7 +34,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <span className="gradient-text">Developer</span>
+            <span className="gradient-text">Fl1uxxNoob</span>
           </motion.h1>
           
           <motion.h2
@@ -43,7 +43,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Minecraft & Discord
+            Dveloper Minecraft & Discord
           </motion.h2>
           
           <motion.p

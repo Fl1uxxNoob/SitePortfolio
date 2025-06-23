@@ -20,21 +20,21 @@ const pluginScreenshots: Record<string, PluginScreenshot[]> = {
       id: 'afk-1',
       title: 'GUI Verification System',
       description: 'Main interface of the verification system with random blocks to be selected to confirm that the player is not AFK.',
-      imageUrl: '/public/images/afk-guicheck.png',
+      imageUrl: '/images/afk-guicheck.png',
       features: ['Interactive GUI', 'Random Selection', 'Anti-Bot Protection']
     },
     {
       id: 'afk-2',
       title: 'User history management',
       description: 'Verify through a database all actions performed to the user.',
-      imageUrl: '/public/images/afk-hist.png',
+      imageUrl: '/images/afk-hist.png',
       features: ['Activity log', 'Staff command', 'Punitive Actions']
     },
     {
       id: 'afk-3',
       title: 'Notification System',
       description: 'In-game notifications to alert players when they are about to be checked for AFKs.',
-      imageUrl: '/public/images/afk-alert.png',
+      imageUrl: '/images/afk-alert.png',
       features: ['Chat Notifications', 'Action Bar', 'Custom Sounds']
     }
   ],
@@ -43,14 +43,14 @@ const pluginScreenshots: Record<string, PluginScreenshot[]> = {
       id: 'control-1',
       title: 'Main Control Panel',
       description: 'Help interface for player management via discord bot.',
-      imageUrl: '/public/images/cp-help.png',
+      imageUrl: '/images/cp-help.png',
       features: ['Remote Control', 'Manage Player', 'View Statistics']
     },
     {
       id: 'control-2',
       title: 'Ban example',
       description: 'This is an example of banning via discord bots.',
-      imageUrl: '/public/images/cp-ban.png',
+      imageUrl: '/images/cp-ban.png',
       features: ['Moderation', 'Ban']
     }
   ],
@@ -59,28 +59,28 @@ const pluginScreenshots: Record<string, PluginScreenshot[]> = {
       id: 'claim-1',
       title: 'Claim GUI interface',
       description: 'Chunk-based claim system with graphical display and simplified protection management.',
-      imageUrl: '/public/images/claim-gui.png',
+      imageUrl: '/images/claim-gui.png',
       features: ['Claim Chunk-based', 'Graphic Visualization', 'Permit Management']
     },
     {
       id: 'claim-2',
       title: 'Management Flags',
       description: 'Ability to edit each flag of your claim via GUI.',
-      imageUrl: '/public/images/claim-flagsgui.png',
+      imageUrl: '/images/claim-flagsgui.png',
       features: ['Management Flags', 'Gestion with GUI']
     },
     {
       id: 'claim-3',
       title: 'Alert Entry Claim',
       description: 'The plugin alerts you when you are entering or exiting a claim by sending a chat message.',
-      imageUrl: '/public/images/claim-alert.png',
+      imageUrl: '/images/claim-alert.png',
       features: ['Entry Message', 'Exit message', 'Claim info']
     },
     {
       id: 'claim-3',
       title: 'Admin GUI',
       description: 'Through this GUI, admins can manage server claims and view statistics.',
-      imageUrl: '/public/images/claim-adgui.png',
+      imageUrl: '/images/claim-adgui.png',
       features: ['Management', 'GUI for admin', 'Claim info']
     }
   ],
@@ -89,21 +89,21 @@ const pluginScreenshots: Record<string, PluginScreenshot[]> = {
       id: 'tnttag-1',
       title: 'TNTtag Game',
       description: 'Multi-round game system, last one alive wins.',
-      imageUrl: '/public/images/tnttag-game.png',
+      imageUrl: '/images/tnttag-game.png',
       features: ['Countdown Timer', 'Game', 'Scoreboard Live']
     },
     {
       id: 'tnttag-2',
       title: 'TNTtag GUI',
       description: 'Very simple Gui to allow all users to manage the plugin smoothly.',
-      imageUrl: '/public/images/tnttag-gui.png',
+      imageUrl: '/images/tnttag-gui.png',
       features: ['GUI', 'Management', 'Game Rules']
     },
     {
       id: 'tnttag-3',
       title: 'Multi-Arena Support',
       description: 'Support for multiple arenas with individual configuration, custom spawn points and automatic lobby management.',
-      imageUrl: '/public/images/tnttag-arenas.png',
+      imageUrl: '/images/tnttag-arenas.png',
       features: ['Multiple Arenas', 'Custom Spawn', 'Individual Configuration']
     }
   ],
@@ -112,21 +112,21 @@ const pluginScreenshots: Record<string, PluginScreenshot[]> = {
       id: 'bosscore-1',
       title: 'Game Mechanics Documentation',
       description: 'BossCore is a plugin for Minecraft that allows players to compete against a boss: players must hit the boss as many times as possible to finish first. The plugin probably keeps track of the hits struck by players and determines a winner based on the number of hits..',
-      imageUrl: '/public/images/bs-start.png',
+      imageUrl: '/images/bs-start.png',
       features: ['Start of the event', 'Ranking', 'Boss']
     },
     {
       id: 'bosscore-2',
       title: 'Boss skills',
       description: 'The boss repels all players depending on how many total hits he receives.',
-      imageUrl: '/public/images/bs-ability.png',
+      imageUrl: '/images/bs-ability.png',
       features: ['Skills', 'Hit', 'Boss', 'Random']
     },
     {
       id: 'bosscore-3',
       title: 'Winning system',
       description: 'At the end of the event the plugin prints in chat the ranking of the top 3 players who will receive a prize chosen in the config.',
-      imageUrl: '/public/images/bs-win.png',
+      imageUrl: '/images/bs-win.png',
       features: ['Win ranking', 'Rewards', 'Competition']
     }
   ]
