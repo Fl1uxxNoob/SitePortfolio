@@ -1,7 +1,8 @@
 import { useParams, Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowLeft, Github, Download, Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, Github, Download, Star, ChevronLeft, ChevronRight, Shield, Clock, RotateCcw, Settings, Puzzle, Gamepad2 } from "lucide-react";
 import { useState } from "react";
+import React from "react";
 import { minecraftPlugins } from "@/data/projects";
 import MouseLight from "@/components/MouseLight";
 
@@ -12,6 +13,16 @@ interface PluginScreenshot {
   imageUrl: string;
   features: string[];
 }
+
+// Icon mapping object
+const iconMap = {
+  "shield-alt": Shield,
+  "user-clock": Clock,
+  "exchange-alt": RotateCcw,
+  "cogs": Settings,
+  "puzzle-piece": Puzzle,
+  "gamepad": Gamepad2,
+};
 
 // Esempi di screenshot per ogni plugin - qui puoi aggiungere le tue foto
 const pluginScreenshots: Record<string, PluginScreenshot[]> = {
@@ -195,7 +206,12 @@ export default function PluginDetail() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="text-6xl mb-6">{plugin.icon}</div>
+          <div className="text-6xl mb-6">
+            {iconMap[plugin.icon as keyof typeof iconMap] ? 
+              React.createElement(iconMap[plugin.icon as keyof typeof iconMap], { size: 96, className: "mx-auto text-blue-400" }) : 
+              <div className="text-blue-400">{plugin.icon}</div>
+            }
+          </div>
           <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
             {plugin.name}
           </h1>
@@ -256,7 +272,12 @@ export default function PluginDetail() {
                     />
                     <div className="w-full h-full flex items-center justify-center text-center" style={{ display: 'none' }}>
                       <div>
-                        <div className="text-6xl mb-4">{plugin.icon}</div>
+                        <div className="text-6xl mb-4">
+                          {iconMap[plugin.icon as keyof typeof iconMap] ? 
+                            React.createElement(iconMap[plugin.icon as keyof typeof iconMap], { size: 64, className: "mx-auto text-blue-400" }) : 
+                            <div className="text-blue-400">{plugin.icon}</div>
+                          }
+                        </div>
                         <p className="text-gray-400 text-lg font-medium">
                           {screenshots[currentScreenshot]?.title || 'Screenshot'}
                         </p>

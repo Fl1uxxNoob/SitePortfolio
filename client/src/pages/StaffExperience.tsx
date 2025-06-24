@@ -1,6 +1,5 @@
-
 import { motion } from "framer-motion";
-import { ArrowLeft, Users, Shield, Star, Calendar, MapPin } from "lucide-react";
+import { ArrowLeft, Users, Shield, Star, Calendar, MapPin, Code, Gamepad2, Settings } from "lucide-react";
 import { Link } from "wouter";
 import MouseLight from "@/components/MouseLight";
 
@@ -11,51 +10,160 @@ interface Experience {
   period: string;
   description: string;
   responsibilities: string[];
-  achievements: string[];
+  keySkills: string[];
   status: 'current' | 'past';
   icon: string;
 }
 
 const staffExperiences: Experience[] = [
   {
-    id: 'example-server',
-    role: 'Sviluppatore Senior',
-    server: 'EsempioNetwork',
-    period: 'Gennaio 2023 - Presente',
-    description: 'Responsabile dello sviluppo di plugin custom e gestione dell\'infrastruttura del server.',
+    id: 'coralmc',
+    role: 'Helper Supporter',
+    server: 'CoralMC',
+    period: 'July 2023 - October 2023',
+    description: 'Provided player support and community assistance in a growing Minecraft server environment.',
     responsibilities: [
-      'Sviluppo di plugin Minecraft personalizzati',
-      'Manutenzione del database e ottimizzazione performance',
-      'Gestione del team di sviluppo',
-      'Implementazione di nuove funzionalità'
+      'Player support and assistance',
+      'Community moderation',
+      'Bug report handling',
+      'New player guidance'
     ],
-    achievements: [
-      'Aumento del 40% delle performance del server',
-      'Sviluppo di 5+ plugin utilizzati da 1000+ giocatori',
-      'Riduzione dei bug del 60%'
-    ],
-    status: 'current',
-    icon: '⚡'
-  },
-  {
-    id: 'previous-server',
-    role: 'Moderatore & Plugin Developer',
-    server: 'VecchioServer',
-    period: 'Marzo 2022 - Dicembre 2022',
-    description: 'Moderazione della community e sviluppo di sistemi di automazione.',
-    responsibilities: [
-      'Moderazione chat e risoluzione dispute',
-      'Sviluppo di bot Discord per automazione',
-      'Training di nuovi staff members',
-      'Gestione eventi e competizioni'
-    ],
-    achievements: [
-      'Gestione community di 500+ membri',
-      'Sviluppo sistema anti-cheat personalizzato',
-      'Organizzazione di 10+ eventi di successo'
+    keySkills: [
+      'Customer service',
+      'Problem solving',
+      'Communication skills',
+      'Community engagement'
     ],
     status: 'past',
-    icon: '🛡️'
+    icon: '🐠'
+  },
+  {
+    id: 'orbital-studios',
+    role: 'Freelancer',
+    server: 'Orbital Studios',
+    period: 'September 2023 - October 2023',
+    description: 'Freelance work providing specialized services and project development.',
+    responsibilities: [
+      'Project development',
+      'Client consultation',
+      'Custom solutions delivery',
+      'Quality assurance'
+    ],
+    keySkills: [
+      'Independent work',
+      'Project management',
+      'Client relations',
+      'Technical expertise'
+    ],
+    status: 'past',
+    icon: '🚀'
+  },
+  {
+    id: 'redamc-redamc',
+    role: 'Sr. Admin, Builder and Developer',
+    server: 'RedaMC / DissoMC',
+    period: 'October 2021 - June 2023 - January2025 - May 2025',
+    description: 'Senior administrative role with building and development responsibilities, managing server operations, creative projects, and custom plugin development.',
+    responsibilities: [
+      'Server administration',
+      'Build team leadership',
+      'Plugin development',
+      'Staff management',
+      'Server configuration'
+    ],
+    keySkills: [
+      'Leadership',
+      'Creative building',
+      'Plugin development',
+      'Server management',
+      'Team coordination'
+    ],
+    status: 'past',
+    icon: '🏗️'
+  },
+  {
+    id: 'aquariusmc',
+    role: 'Helper Supporter',
+    server: 'AquariusMC',
+    period: 'May 2022 - July 2022',
+    description: 'Community support role focused on player assistance and server maintenance.',
+    responsibilities: [
+      'Player support',
+      'Community assistance',
+      'Issue resolution',
+      'Server monitoring'
+    ],
+    keySkills: [
+      'Support services',
+      'Community management',
+      'Conflict resolution',
+      'Server knowledge'
+    ],
+    status: 'past',
+    icon: '♒'
+  },
+  {
+    id: 'lifemc',
+    role: 'Owner',
+    server: 'LifeMC',
+    period: 'Period Unknown',
+    description: 'Full server ownership with complete operational responsibility and strategic direction.',
+    responsibilities: [
+      'Complete server management',
+      'Strategic planning',
+      'Staff recruitment',
+      'Community building'
+    ],
+    keySkills: [
+      'Business management',
+      'Strategic thinking',
+      'Full-stack operations',
+      'Community leadership'
+    ],
+    status: 'past',
+    icon: '👑'
+  },
+  {
+    id: 'gravitymc',
+    role: 'Helper SS Verified',
+    server: 'GravityMC',
+    period: 'Period Unknown',
+    description: 'Screen share verified helper role, specializing in anti-cheat operations and player verification.',
+    responsibilities: [
+      'Screen share verification',
+      'Anti-cheat operations',
+      'Player investigation',
+      'Evidence collection'
+    ],
+    keySkills: [
+      'Investigation skills',
+      'Technical analysis',
+      'Anti-cheat expertise',
+      'Evidence handling'
+    ],
+    status: 'past',
+    icon: '🔍'
+  },
+  {
+    id: 'supersmashup',
+    role: 'Mod+ SS Verified',
+    server: 'SuperSmashUp',
+    period: 'Period Unknown',
+    description: 'Advanced moderation role with screen share verification capabilities for competitive gaming environment.',
+    responsibilities: [
+      'Advanced moderation',
+      'Screen share verification',
+      'Competitive integrity',
+      'Staff coordination'
+    ],
+    keySkills: [
+      'Advanced moderation',
+      'Competitive gaming',
+      'Verification protocols',
+      'Team leadership'
+    ],
+    status: 'past',
+    icon: '⚔️'
   }
 ];
 
@@ -80,7 +188,7 @@ export default function StaffExperience() {
           >
             <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-8">
               <ArrowLeft size={20} />
-              Torna alla Home
+              Back to Home
             </Link>
 
             <div className="mb-12">
@@ -88,8 +196,8 @@ export default function StaffExperience() {
                 Staff Experience
               </h1>
               <p className="text-xl text-gray-300 max-w-3xl">
-                La mia esperienza come staff member in diversi server Minecraft, 
-                dove ho sviluppato competenze di leadership, gestione community e sviluppo.
+                My experience as a staff member across various Minecraft servers, 
+                where I developed leadership, community management, and technical skills.
               </p>
             </div>
           </motion.div>
@@ -103,8 +211,8 @@ export default function StaffExperience() {
                 key={experience.id}
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 hover:border-gray-700 transition-all duration-300"
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 hover:border-gray-700 transition-all duration-300 group"
               >
                 <div className="flex flex-col lg:flex-row gap-8">
                   {/* Experience Info */}
@@ -113,7 +221,7 @@ export default function StaffExperience() {
                       <div className="text-4xl">{experience.icon}</div>
                       <div>
                         <h2 className="text-2xl font-bold text-white mb-2">{experience.role}</h2>
-                        <div className="flex items-center gap-4 text-gray-400">
+                        <div className="flex items-center gap-4 text-gray-400 flex-wrap">
                           <div className="flex items-center gap-2">
                             <MapPin size={16} />
                             <span>{experience.server}</span>
@@ -127,7 +235,7 @@ export default function StaffExperience() {
                               ? 'bg-green-500/20 text-green-400' 
                               : 'bg-gray-500/20 text-gray-400'
                           }`}>
-                            {experience.status === 'current' ? 'Attuale' : 'Passato'}
+                            {experience.status === 'current' ? 'Current' : 'Past'}
                           </div>
                         </div>
                       </div>
@@ -140,7 +248,7 @@ export default function StaffExperience() {
                       <div>
                         <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
                           <Users size={18} />
-                          Responsabilità
+                          Responsibilities
                         </h3>
                         <ul className="space-y-2">
                           {experience.responsibilities.map((responsibility, idx) => (
@@ -152,17 +260,17 @@ export default function StaffExperience() {
                         </ul>
                       </div>
 
-                      {/* Achievements */}
+                      {/* Key Skills */}
                       <div>
                         <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
                           <Star size={18} />
-                          Risultati Ottenuti
+                          Key Skills Developed
                         </h3>
                         <ul className="space-y-2">
-                          {experience.achievements.map((achievement, idx) => (
+                          {experience.keySkills.map((skill, idx) => (
                             <li key={idx} className="text-gray-300 flex items-start gap-2">
                               <span className="text-purple-400 mt-1">•</span>
-                              {achievement}
+                              {skill}
                             </li>
                           ))}
                         </ul>
@@ -180,36 +288,48 @@ export default function StaffExperience() {
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm border border-gray-800 rounded-2xl p-8"
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 hover:border-gray-700 transition-all duration-300 group"
           >
             <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
               <Shield size={24} />
-              Competenze Sviluppate
+              Overall Skills Developed
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div>
-                <h3 className="text-lg font-semibold text-blue-400 mb-3">Leadership</h3>
+                <h3 className="text-lg font-semibold text-blue-400 mb-3 flex items-center gap-2">
+                  <Users size={18} />
+                  Leadership
+                </h3>
                 <ul className="text-gray-300 space-y-1">
-                  <li>• Gestione team di sviluppo</li>
-                  <li>• Coordinamento progetti</li>
-                  <li>• Mentoring junior staff</li>
+                  <li>• Team management</li>
+                  <li>• Project coordination</li>
+                  <li>• Staff mentoring</li>
+                  <li>• Strategic planning</li>
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-purple-400 mb-3">Community Management</h3>
+                <h3 className="text-lg font-semibold text-purple-400 mb-3 flex items-center gap-2">
+                  <Gamepad2 size={18} />
+                  Community Management
+                </h3>
                 <ul className="text-gray-300 space-y-1">
-                  <li>• Moderazione community</li>
-                  <li>• Risoluzione conflitti</li>
-                  <li>• Organizzazione eventi</li>
+                  <li>• Community moderation</li>
+                  <li>• Conflict resolution</li>
+                  <li>• Event organization</li>
+                  <li>• Player support</li>
                 </ul>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-green-400 mb-3">Sviluppo Tecnico</h3>
+                <h3 className="text-lg font-semibold text-green-400 mb-3 flex items-center gap-2">
+                  <Settings size={18} />
+                  Technical Skills
+                </h3>
                 <ul className="text-gray-300 space-y-1">
+                  <li>• Server administration</li>
                   <li>• Plugin development</li>
-                  <li>• Database management</li>
-                  <li>• Performance optimization</li>
+                  <li>• Screen share verification</li>
+                  <li>• System optimization</li>
                 </ul>
               </div>
             </div>
