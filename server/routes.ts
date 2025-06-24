@@ -16,12 +16,10 @@ interface ContactMessage {
 export async function registerRoutes(app: Express): Promise<Server> {
   const requestsFilePath = join(process.cwd(), 'requests.yml');
 
-  // Endpoint per inviare messaggi di contatto
   app.post('/api/contact', async (req, res) => {
     try {
       const { name, email, subject, message } = req.body;
 
-      // Validazione input
       if (!name || !email || !subject || !message) {
         return res.status(400).json({ 
           success: false, 
@@ -29,7 +27,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
 
-      // Validazione email base
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) {
         return res.status(400).json({ 
@@ -38,7 +35,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
 
-      // Crea nuovo messaggio
       const newMessage: ContactMessage = {
         id: Date.now().toString() + Math.random().toString(36).substr(2, 9),
         name: name.trim(),
@@ -48,7 +44,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
         timestamp: new Date().toISOString()
       };
 
-      // Leggi file esistente o crea array vuoto
       let messages: ContactMessage[] = [];
       if (existsSync(requestsFilePath)) {
         try {
@@ -61,10 +56,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         }
       }
 
-      // Aggiungi nuovo messaggio
       messages.push(newMessage);
 
-      // Salva nel file YAML
       const yamlData = {
         messages: messages,
         lastUpdated: new Date().toISOString(),
@@ -96,7 +89,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Endpoint per recuperare tutti i messaggi (opzionale, per admin)
   app.get('/api/contact', async (req, res) => {
     try {
       if (!existsSync(requestsFilePath)) {
