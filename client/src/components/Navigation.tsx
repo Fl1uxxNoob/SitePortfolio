@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from 'next/link';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,9 +29,13 @@ export default function Navigation() {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    if (sectionId === "staff-experience") {
+      window.location.href = "/staff-experience";
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
     setIsOpen(false);
   };
@@ -42,6 +47,7 @@ export default function Navigation() {
     { id: "bots", label: "Discord Bots" },
     { id: "screenshots", label: "Screenshots" },
     { id: "contact", label: "Contact" },
+    { id: "staff-experience", label: "Staff Experience" },
   ];
 
   return (
@@ -56,7 +62,7 @@ export default function Navigation() {
           >
             Portfolio
           </motion.div>
-          
+
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
               <button
@@ -70,7 +76,7 @@ export default function Navigation() {
               </button>
             ))}
           </div>
-          
+
           <button
             className="md:hidden text-white"
             onClick={() => setIsOpen(!isOpen)}
@@ -78,7 +84,7 @@ export default function Navigation() {
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-        
+
         {isOpen && (
           <motion.div
             className="md:hidden mt-4 pb-4 border-t border-blue-500/20 pt-4"
