@@ -33,6 +33,17 @@ export const minecraftPlugins: MinecraftPlugin[] = [
     icon: 'user-clock'
   },
   {
+    id: 'mythic-fish',
+    name: 'MythicFish',
+    version: 'v1.0.0',
+    description: 'MythicFish is a comprehensive plugin that replaces Minecraft vanilla fishing system with a completely customized experience. Players can catch unique biome-based fish, collect them, and complete quests to earn rewards.',
+    technologies: ['Java', 'SQLite', 'Spigot'],
+    githubUrl: 'https://github.com/Fl1uxxNoob/MythicFish',
+    license: 'GPL-3.0',
+    status: 'active',
+    icon: 'cogs'
+  },
+  {
     id: 'control-players',
     name: 'ControlPlayers',
     version: 'v1.0',
@@ -66,14 +77,25 @@ export const minecraftPlugins: MinecraftPlugin[] = [
     icon: 'puzzle-piece'
   },
   {
+    id: 'quests-plus',
+    name: 'QuestsPlus',
+    version: 'Beta (75% complete)',
+    description: 'This plugin allows the creation of fully customizable missions. It supports the creation of temporary, timed quests, a GUI interface and much more.',
+    technologies: ['Java', 'Spigot', 'Challenges'],
+    githubUrl: 'https://github.com/Fl1uxxNoob/QuestPlus',
+    license: 'GPL-3.0',
+    status: 'beta',
+    icon: 'gamepad'
+  },
+  {
     id: 'tnt-tag',
     name: 'TNTTag',
-    version: 'v1.0',
+    version: 'Beta',
     description: 'Classic TNTTag minigame where players pass around a TNT item and try to avoid being the holder when the timer runs out. Features multi-arena support, WorldGuard integration, and interactive GUI.',
     technologies: ['Java', 'Spigot', 'Minigame'],
     githubUrl: 'https://github.com/Fl1uxxNoob/TNTtag',
     license: 'GPL-3.0',
-    status: 'active',
+    status: 'beta',
     icon: 'gamepad'
   },
   {
@@ -85,6 +107,17 @@ export const minecraftPlugins: MinecraftPlugin[] = [
     githubUrl: 'https://github.com/Fl1uxxNoob/DeathSwap',
     license: 'GPL-3.0',
     status: 'beta',
+    icon: 'exchange-alt'
+  },
+  {
+    id: 'custom-entity',
+    name: 'CustomEntity',
+    version: 'Planned',
+    description: 'This plugin allows the creation of custom entities, such as bosses, with all customizable parameters and behaviors.',
+    technologies: ['Java', 'Spigot', 'Entities'],
+    githubUrl: '',
+    license: '',
+    status: 'planned',
     icon: 'exchange-alt'
   }
 ];

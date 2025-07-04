@@ -49,6 +49,29 @@ const pluginScreenshots: Record<string, PluginScreenshot[]> = {
       features: ['Chat Notifications', 'Action Bar', 'Custom Sounds']
     }
   ],
+  'mythic-fish': [
+    {
+      id: 'mythicfish-1',
+      title: 'New fish unlocked',
+      description: 'Ability to catch new fish of different rarity and they will be added to one\'s fish collection.',
+      imageUrl: '/images/myf-new.png',
+      features: ['New Fish', 'Fishing', 'Fortune System']
+    },
+    {
+      id: 'mythicfish-2',
+      title: 'Collection GUI',
+      description: 'This is an example of a collection GUI for managing fish caught and to be unlocked.',
+      imageUrl: '/images/myf-collect.png',
+      features: ['Collection Management', 'Fish Rarity', 'User Interface']
+    },
+    {
+      id: 'mythicfish-3',
+      title: 'Quests GUI',
+      description: 'This is an example of a quests GUI for managing fishing quests.',
+      imageUrl: '/images/myf-quest.png',
+      features: ['Quest Management', 'Fishing Goals', 'User Interface']
+    }
+  ],
   'control-players': [
     {
       id: 'control-1',
