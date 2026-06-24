@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { MapPin, Mail, Code, Github, Send } from "lucide-react";
-import { SiDiscord, SiLinkedin } from "react-icons/si";
+import { SiDiscord } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -13,7 +13,15 @@ export default function ContactSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   const { toast } = useToast();
-  
+
+  const copyDiscord = () => {
+    navigator.clipboard.writeText("fliuxxreal");
+    toast({
+      title: "Discord copiato!",
+      description: "Username Discord copiato: fliuxxreal",
+    });
+  };
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -145,22 +153,13 @@ export default function ContactSection() {
                   >
                     <Github size={20} />
                   </a>
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={copyDiscord}
                     className="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition-colors transform hover:scale-110"
+                    title="Copia username Discord"
                   >
                     <SiDiscord size={20} />
-                  </a>
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-gray-800 hover:bg-gray-700 p-3 rounded-full transition-colors transform hover:scale-110"
-                  >
-                    <SiLinkedin size={20} />
-                  </a>
+                  </button>
                 </motion.div>
               </motion.div>
               

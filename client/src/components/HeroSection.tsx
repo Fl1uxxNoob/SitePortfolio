@@ -1,14 +1,25 @@
 import { motion } from "framer-motion";
 import { ChevronDown, Github } from "lucide-react";
-import { SiDiscord, SiLinkedin } from "react-icons/si";
+import { SiDiscord } from "react-icons/si";
 import MouseLight from "@/components/MouseLight";
+import { useToast } from "@/hooks/use-toast";
 
 export default function HeroSection() {
+  const { toast } = useToast();
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const copyDiscord = () => {
+    navigator.clipboard.writeText("fliuxxreal");
+    toast({
+      title: "Discord copiato!",
+      description: "Username Discord copiato: fliuxxreal",
+    });
   };
 
   return (
@@ -43,7 +54,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Dveloper Minecraft & Discord
+            Developer Minecraft & Discord
           </motion.h2>
           
           <motion.p
@@ -90,22 +101,13 @@ export default function HeroSection() {
             >
               <Github size={32} />
             </a>
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={copyDiscord}
               className="text-3xl hover:text-blue-400 transition-colors transform hover:scale-110"
+              title="Copia username Discord"
             >
               <SiDiscord size={32} />
-            </a>
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-3xl hover:text-blue-400 transition-colors transform hover:scale-110"
-            >
-              <SiLinkedin size={32} />
-            </a>
+            </button>
           </motion.div>
         </motion.div>
       </div>

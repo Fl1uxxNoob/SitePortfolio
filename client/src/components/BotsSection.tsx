@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Github, Shield, Bot, ChartBar, Music, Clock, Lightbulb, Eye } from "lucide-react";
+import { Github, Shield, Clock, Lightbulb, Eye } from "lucide-react";
 import { SiDiscord } from "react-icons/si";
 import { Link } from "wouter";
 import { discordBots } from "@/data/projects";

@@ -17,6 +17,27 @@ interface Experience {
 
 const staffExperiences: Experience[] = [
   {
+    id: 'devroom',
+    role: 'Freelancer (Minecraft Plugin Developer)',
+    server: 'DevRoom',
+    period: 'September 2025 - Present',
+    description: 'Freelance Minecraft plugin development, building custom plugins and tailored solutions for clients.',
+    responsibilities: [
+      'Custom plugin development',
+      'Client requirements analysis',
+      'Bug fixing and maintenance',
+      'Technical support'
+    ],
+    keySkills: [
+      'Java',
+      'Spigot/Paper API',
+      'Problem solving',
+      'Client communication'
+    ],
+    status: 'current',
+    icon: '💻'
+  },
+  {
     id: 'coralmc',
     role: 'Helper Supporter',
     server: 'CoralMC',
@@ -62,7 +83,7 @@ const staffExperiences: Experience[] = [
     id: 'redamc-redamc',
     role: 'Sr. Admin, Builder and Developer',
     server: 'RedaMC / DissoMC',
-    period: 'October 2021 - June 2023 - January2025 - May 2025',
+    period: 'October 2021 - June 2023 - January 2025 - May 2025',
     description: 'Senior administrative role with building and development responsibilities, managing server operations, creative projects, and custom plugin development.',
     responsibilities: [
       'Server administration',

@@ -3,15 +3,7 @@ import { createServer, type Server } from "http";
 import { writeFileSync, readFileSync, existsSync } from "fs";
 import { join } from "path";
 import yaml from "js-yaml";
-
-interface ContactMessage {
-  id: string;
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-  timestamp: string;
-}
+import { sendContactEmail, type ContactMessage } from "./email";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   const requestsFilePath = join(process.cwd(), 'requests.yml');
@@ -74,8 +66,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       console.log(`Nuovo messaggio salvato da: ${name} (${email})`);
 
-      res.json({ 
-        success: true, 
+      // Invia l'email di notifica. Il messaggio è già salvato come backup nel
+      // file YAML, quindi se l'invio fallisce logghiamo l'errore ma rispondiamo
+      // comunque con successo per non perdere/segnalare un messaggio già ricevuto.
+      try {
+        await sendContactEmail(newMessage);
+        console.log(`Email di notifica inviata per il messaggio ${newMessage.id}`);
+      } catch (emailError) {
+        console.error('Errore nell\'invio dell\'email di notifica:', emailError);
+      }
+
+      res.json({
+        success: true,
         message: 'Messaggio inviato con successo!',
         id: newMessage.id
       });
@@ -85,25 +87,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ 
         success: false, 
         message: 'Errore interno del server' 
-      });
-    }
-  });
-
-  app.get('/api/contact', async (req, res) => {
-    try {
-      if (!existsSync(requestsFilePath)) {
-        return res.json({ messages: [], totalMessages: 0 });
-      }
-
-      const fileContent = readFileSync(requestsFilePath, 'utf8');
-      const parsedData = yaml.load(fileContent);
-      
-      res.json(parsedData);
-    } catch (error) {
-      console.error('Errore nel leggere i messaggi:', error);
-      res.status(500).json({ 
-        success: false, 
-        message: 'Errore nel recuperare i messaggi' 
       });
     }
   });

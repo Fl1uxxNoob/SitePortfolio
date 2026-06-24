@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
-import Link from 'next/link';
+import { useLocation } from "wouter";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [, setLocation] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,7 +31,7 @@ export default function Navigation() {
 
   const scrollToSection = (sectionId: string) => {
     if (sectionId === "staff-experience") {
-      window.location.href = "/staff-experience";
+      setLocation("/staff-experience");
     } else {
       const element = document.getElementById(sectionId);
       if (element) {

@@ -224,7 +224,10 @@ export default function ScreenshotsSection() {
                       <span className="text-xs text-gray-500">
                         {currentIndex + 1} of {filteredScreenshots.length}
                       </span>
-                      <button className="flex items-center text-blue-400 hover:text-blue-300 transition-colors">
+                      <button
+                        onClick={() => window.open(currentScreenshot.imageUrl, '_blank')}
+                        className="flex items-center text-blue-400 hover:text-blue-300 transition-colors"
+                      >
                         <ExternalLink size={16} className="mr-2" />
                         View Full Size
                       </button>

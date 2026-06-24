@@ -111,7 +111,7 @@ const pluginScreenshots: Record<string, PluginScreenshot[]> = {
       features: ['Entry Message', 'Exit message', 'Claim info']
     },
     {
-      id: 'claim-3',
+      id: 'claim-4',
       title: 'Admin GUI',
       description: 'Through this GUI, admins can manage server claims and view statistics.',
       imageUrl: '/images/claim-adgui.png',

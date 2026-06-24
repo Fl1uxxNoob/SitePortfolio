@@ -88,15 +88,17 @@ export default function BotDetail() {
               Back to Portfolio
             </Link>
             <div className="flex items-center space-x-4">
-              <a
-                href={bot.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors"
-              >
-                <Github size={16} className="mr-2" />
-                GitHub
-              </a>
+              {bot.githubUrl && (
+                <a
+                  href={bot.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors"
+                >
+                  <Github size={16} className="mr-2" />
+                  GitHub
+                </a>
+              )}
             </div>
           </div>
         </div>
