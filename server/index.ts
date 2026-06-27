@@ -4,6 +4,9 @@ import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
+// Se in produzione il sito sta dietro un reverse proxy, questo permette a
+// express-rate-limit di leggere l'IP reale dall'header X-Forwarded-For.
+app.set("trust proxy", 1);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

@@ -3,36 +3,50 @@ import { createServer, type Server } from "http";
 import { writeFileSync, readFileSync, existsSync } from "fs";
 import { join } from "path";
 import yaml from "js-yaml";
+import rateLimit from "express-rate-limit";
+import { z } from "zod";
 import { sendContactEmail, type ContactMessage } from "./email";
+
+// Limiti allineati a quelli del form lato client (ContactSection.tsx), così la
+// validazione non è aggirabile chiamando direttamente l'API.
+const contactSchema = z.object({
+  name: z.string().trim().min(2, 'Il nome deve avere almeno 2 caratteri').max(100, 'Il nome è troppo lungo'),
+  email: z.string().trim().toLowerCase().email('Email non valida').max(255, "L'email è troppo lunga"),
+  subject: z.string().trim().min(3, "L'oggetto deve avere almeno 3 caratteri").max(200, "L'oggetto è troppo lungo"),
+  message: z.string().trim().min(10, 'Il messaggio deve avere almeno 10 caratteri').max(1000, 'Il messaggio è troppo lungo'),
+});
+
+// Rate limit per IP sull'endpoint pubblico: evita spam di email e crescita
+// incontrollata di requests.yml.
+const contactLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 5,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { success: false, message: 'Troppe richieste, riprova più tardi.' },
+});
 
 export async function registerRoutes(app: Express): Promise<Server> {
   const requestsFilePath = join(process.cwd(), 'requests.yml');
 
-  app.post('/api/contact', async (req, res) => {
+  app.post('/api/contact', contactLimiter, async (req, res) => {
     try {
-      const { name, email, subject, message } = req.body;
-
-      if (!name || !email || !subject || !message) {
-        return res.status(400).json({ 
-          success: false, 
-          message: 'Tutti i campi sono obbligatori' 
+      const parsed = contactSchema.safeParse(req.body);
+      if (!parsed.success) {
+        return res.status(400).json({
+          success: false,
+          message: parsed.error.issues[0]?.message ?? 'Dati non validi',
         });
       }
 
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        return res.status(400).json({ 
-          success: false, 
-          message: 'Email non valida' 
-        });
-      }
+      const { name, email, subject, message } = parsed.data;
 
       const newMessage: ContactMessage = {
         id: Date.now().toString() + Math.random().toString(36).substr(2, 9),
-        name: name.trim(),
-        email: email.trim().toLowerCase(),
-        subject: subject.trim(),
-        message: message.trim(),
+        name,
+        email,
+        subject,
+        message,
         timestamp: new Date().toISOString()
       };
 

@@ -79,12 +79,12 @@ export const minecraftPlugins: MinecraftPlugin[] = [
   {
     id: 'quests-plus',
     name: 'QuestsPlus',
-    version: 'Beta (75% complete)',
+    version: 'v1.0.0',
     description: 'This plugin allows the creation of fully customizable missions. It supports the creation of temporary, timed quests, a GUI interface and much more.',
     technologies: ['Java', 'Spigot', 'Challenges'],
     githubUrl: 'https://github.com/Fl1uxxNoob/QuestPlus',
     license: 'GPL-3.0',
-    status: 'beta',
+    status: 'active',
     icon: 'gamepad'
   },
   {
